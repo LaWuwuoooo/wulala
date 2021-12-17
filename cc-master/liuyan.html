@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>发布</title>
+	<link rel="stylesheet" type="text/css" href="css/css.css"/>
+	<link rel="stylesheet" type="text/css" href="css/liluyan.css"/>
+</head>
+<body  bgcolor="#F4F4F4">
+		<!-- 头部导航-->
+	<nav id="guding">
+	<div id="login">
+	<h2>欢迎！</h2>
+	<div id="loginp"><a href="login.html">登录</a>|<a href="#">注册</a>|<a href="lianxi.html">联系我们</a></div>
+	</div>
+	<div id="logoall">
+	<div id="logo">
+	    <div id="logo1"><a href="index.html">
+	    <img src="image/logo.png" width="200" height="100" />
+	    </a>
+	    </div>
+	   <div id="logo2"><img src="image/logoright.png" width="100" height="25" /></div></div></div>
+	<div id="naviall">
+	<div id="navi">
+	    <ul>
+	         <li><a href="index.html">首页</a></li>
+	         <li><a href="About.html">关于</a></li>
+	         <li id="p"><a href="show.html">产品展示</a>
+	         	<div>
+	         		<ul id="p_show" hidden="hidden">
+						<li><a href="show.html#content1">酒庄系列</a></li>
+						<li><a href="show.html#content2">优选系列</a></li>
+						<li><a href="show.html#tast">酒具</a></li>
+					</ul>						
+         		</div>
+	         </li>
+	         <li><a href="service.html">服务</a></li>
+	         <li><div class="liuyan"><a href="#">在线留言</a></div></li>
+	         <li><a href="lianxi.html">联系我们</a></li>
+	     </ul>
+	</div>
+	</div>
+	</nav>
+	<div class="addHeight"></div>
+	<!--头部结束-->
+	<div class="wrap">
+		<div class="says">
+			<h1>来，说说你在做什么，想什么...</h1>
+			<textarea>请点击发布试试吧<br>输入内容，点击发布即可！</textarea><input type="button"  value="发布">
+			<div class="errmsg">请填写内容后再发布！</div>
+		</div>
+		<ul class="liuyan_ul">
+			 
+		</ul>
+	</div>
+	
+	<!--尾部-->
+		<div id="version"><p>关于我们 | 约稿启事 | 网站导航 | 诚聘英才| 刊登广告 | 服务项目 | 联系我们 | 法律声明 | 建议投诉 | 网站帮助| 友情链接<br />
+			</p>
+			<p>中国葡萄酒资讯网客服QQ：800063399   | 客服电话：0771-2631000|投诉信箱：info@wines-info.com<br /></p>
+		<p> 新乡学院  ||  软件学院  ||  班级 ：软件工程（专升本）一班  ||  学号 ：20204132045  ||  姓名 ：陈元凯 </p>
+		</div>
+		<!--尾部结束-->
+
+	<script>
+	
+		window.onload=function()
+		{ 
+			
+			if(getCookie("user")==1){
+			document.getElementById("loginp").innerHTML="陈元凯|<a href='javascript:void(0)' onclick='exitLogin()'>退出登录</a>|<a href='shopCar.html'>购物车</a>";//
+			}
+			var OoWrap=document.getElementsByClassName("wrap")[0];
+			var OoTextarea=OoWrap.getElementsByTagName("textarea")[0];
+			var OoBtn=OoWrap.getElementsByTagName("input")[0];
+			
+			var OoUl=OoWrap.getElementsByTagName("ul")[0];
+			var OerrMsg=OoWrap.getElementsByClassName("errmsg")[0];
+			var OoA=document.getElementsByTagName("a");
+			//console.log(OoA);
+			var Ot=new Date();
+			var OYear=Ot.getFullYear();
+			var OMonth=Ot.getMonth()+1;
+			var ODay=Ot.getDate();
+			var OHours=Ot.getHours();
+			var OMinutes=Ot.getMinutes();
+			var OScondes=Ot.getSeconds();
+			var Otimers=toString(OYear)+"年"+toString(OMonth)+"月"+toString(ODay)+"日"+toString(OHours)+":"+toString(OMinutes)+":"+toString(OScondes);//将获取到的日期对象拼接。
+			//console.log(Otimers);
+
+			function toString(n)//数字转字符串
+			{
+				if(n<9)
+				{
+					n="0"+n;
+				}
+				else
+				{
+					n=""+n;
+				}
+				return n;
+			};
+
+			OoBtn.onclick=function()
+			
+			{
+				if(OoTextarea.value=="")
+				{
+					startMove(OerrMsg,{opacity:100});
+					//console.log(OerrMsg.style.opacity)
+					OoTextarea.select();
+				}
+				else
+				{
+				var OaLi=document.createElement("li");
+				var OaSpan=document.createElement("span");
+ 				//console.log(OaLi);
+				//console.log(OaSpan);
+				//OoUl.appendChild(OaLi);
+				//OaLi.appendChild(OaSpan);
+				OaLi.innerHTML=OoTextarea.value;
+				OaSpan.innerHTML=Otimers+"<a href='javascript:;' title='删除这条信息'>删除</a>";
+ 				//OaSpan.innerHTML="<a href='javascript:;'>删除</a>"
+				if(OoUl.children.length>0)
+				{
+					OoUl.insertBefore(OaLi,OoUl.children[0]);
+					OaLi.appendChild(OaSpan);
+					OoTextarea.value="";
+ 				}
+				else
+				{
+					OoUl.appendChild(OaLi);
+					OaLi.appendChild(OaSpan);
+					OoTextarea.value="";
+ 				};
+				var aLiHeight=parseInt(getStyle(OaLi,"height"));
+				//console.log(aLiHeight);
+					OaLi.style.height="0";
+					startMove(OaLi,{height:aLiHeight},function(){
+						startMove(OaLi,{opacity:100});
+					});
+				delLi();//添加数据后加载删除模块	
+			}
+			};
+ 			
+ 			function delLi()
+ 			{
+ 				for(var i=0;i<OoA.length;i++)
+ 				{
+ 					OoA[i].onclick=function()
+ 					{	
+ 						liNode=this.parentNode.parentNode//获取到当前A标签的父节点，也就是LI
+ 						var aLiHeight=parseInt(getStyle(liNode,"height"))+1;
+ 						 //console.log(aLiHeight);
+ 						 //链式运动操作：先进行透明化，再进行高度变小，最后删除DOM元素
+ 						 startMove(liNode,{opacity:0},function(){
+ 						 	startMove(liNode,{height:0},function(){
+ 						 		OoUl.removeChild(liNode);
+ 						 	});
+ 						 });
+ 					}
+ 				}
+ 			}
+  		};
+
+		//运动框架
+		 function startMove(obj,json,endFn){
+		 	clearInterval(obj.timer);
+		 	obj.timer=setInterval(
+		 		function(){
+
+		 			var OiStop=true;
+		 			for(var Ocurr in json)
+		 			{
+		 				var OoNumber=0;
+		 				if(Ocurr=="opacity")
+		 				{
+		 					OoNumber=Math.round(parseFloat(getStyle(obj,Ocurr))*100);
+		 				}
+		 				else
+		 				{
+		 					OoNumber=parseInt(getStyle(obj,Ocurr));
+		 				}
+		 				var speed=(json[Ocurr]-OoNumber)/6;
+		 					speed=speed>0?Math.ceil(speed):Math.floor(speed);
+		 				if(OoNumber!=json[Ocurr])
+		 				OiStop=false;
+		 				if(Ocurr=="opacity")
+		 				{
+		 					obj.style.filter="alpha(opacity:"+(OoNumber+speed)+")";
+		 					obj.style.opacity=(OoNumber+speed)/100;
+		 				}	
+		 				else
+		 				{
+		 					obj.style[Ocurr]=OoNumber+speed+"px";
+		 				}
+		 			};
+		 			if(OiStop)
+		 			{
+		 				clearInterval(obj.timer);
+		 				if(endFn)endFn();
+		 			}
+		 	},30);
+		 };
+
+		//获取非行间样式
+		function getStyle(obj,name)
+		{
+			if(obj.currentStyle)
+			{
+				obj=currentStyle[name];
+			}
+			else
+			{
+				obj=getComputedStyle(obj,false)[name];
+			}
+			return obj;
+		};
+	</script>
+	<script type="text/javascript">
+	
+	function getCookie(name){
+	  var Oarr,Oreg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+	  if(Oarr=document.cookie.match(Oreg)){
+	    return unescape(Oarr[2]);
+	  }else{
+	    return null;
+	  }
+	}
+	function exitLogin(){
+		delCookie("user");
+		location.reload();
+	}
+
+	function delCookie (name) {
+	  var exp = new Date();
+	  exp.setTime(exp.getTime() - 1);
+	  var cval = getCookie(name);
+	  if (cval && cval != null) {
+	    document.cookie = name + '=' + cval + ';expires=' + exp.toGMTString();
+	  }
+	}
+</script>
+</body>
+</html>
