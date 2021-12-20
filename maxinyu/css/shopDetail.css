@@ -35,7 +35,7 @@ textarea{resize:none}
 	height: 2px;
 	position: relative;
 }
-.showbot{float: left;}
+.showbot{float: left; position: relative;}
 #showbox { 
 	width:400px;
 	height: 400px;
@@ -43,6 +43,14 @@ textarea{resize:none}
 	overflow: hidden;
 	position: relative;
 }
+.showbot #showbox img .yc{
+	display: none;
+}
+.showbot #showbox img .xs{
+	display: block;
+}
+
+
 #showbox img{ width:400px;height: 400px; }
 #showbox div {            
 	width: 160px;
@@ -66,35 +74,41 @@ textarea{resize:none}
 	float: right;
 	display: none;
 	position: absolute;
-	top: -15px;
+	top: -10px;
 	left: 420px;
     
 }
 #showsum img{
-	width: 800px;
-	height: 800px;
+	width: 990px;
+	height: 990px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: none;
 } 
 
 /* #showsum span { border:1px solid #ddd;} */
 /* #showsum span.sel { border:1px solid #f60;} */
 
-.showpage { width:383px; position:relative;padding-left: 17px;}
-.showpage a { display:block; width:15px; border:1px solid #ddd; height:60px; line-height:60px; background:#eee; text-align:center; font-size:18px; position:absolute; left:0; top:-62px; text-decoration:none; color:#999; margin-top: 70px;}
-.showpage img{width: 58px;height: 58px;float: left;}
-.showpage div{width: 58px;height: 58px;float: left;margin-right: 3px; cursor: pointer;margin-top: 10px;}
-.showpage div:hover{border: 1px red solid;}
+.showpage { width:400px; position:relative;}
+/* .showpage a { display:block; width:15px; border:1px solid #ddd; height:60px; line-height:60px; background:#eee; text-align:center; font-size:18px; position:absolute; left:0; top:-62px; text-decoration:none; color:#999; margin-top: 70px;} */
+.showpage img{width: 61px;height: 61px;float: left;}
+.showpage div{width: 61px;height: 61px;float: left;margin-right: 5px; cursor: pointer;margin-top: 10px;}
+.showpage div:hover{border: 2px red solid;}
 .showpage a#shownext { left:auto; right:0;}
-.showpage a:hover { background:#ccc; color:#777;}
+/* .showpage a:hover { background:#ccc; color:#777;} */
 
 .showall{
 	width: 1240px;
 	margin: 0 auto;
 	margin-top: 15px;
 }
+
 .tb-property{
 	width:530px;
 	height: 520px;
-	margin-left: 50px;
+	margin-left: 60px;
+	margin-top: -425px;
 	float: left;
 }
 /**/

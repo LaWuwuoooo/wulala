@@ -598,6 +598,7 @@
 	display: inline-block;
 	height: 5px;
 	width: 37px;
+	cursor: pointer;
 	
 }
 .btn span.on{

@@ -25,7 +25,6 @@ for (var i = 0; i < aSpan.length; i++) {
 		nmm = num-1;
 	}
 }
-// num %= aBanner.length;
 function auto() {
 	timer = setInterval(function () {
 		console.log(nmm);

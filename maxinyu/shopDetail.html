@@ -9,25 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/css.css" />
 	<link rel="stylesheet" type="text/css" href="css/shopDetail.css" />
 	<script type="text/javascript" src="js/jquery-1.11.0.js"></script>
-	<script type="text/javascript">
-		$(document).ready(function () {
-			var Oshowproductt = {
-				"boxid": "showbox",
-				"sumid": "showsum",
-				"boxw": 400, //宽度,该版本中请把宽高填写成一样
-				"boxh": 400, //高度,该版本中请把宽高填写成一样
-				"sumw": 60, //列表每个宽度,该版本中请把宽高填写成一样
-				"sumh": 60, //列表每个高度,该版本中请把宽高填写成一样
-				"sumi": 7, //列表间隔
-				"sums": 5, //列表显示个数
-				"sumsel": "sel",
-				"sumborder": 1, //列表边框，没有边框填写0，边框在css中修改
-				"lastid": "showlast",
-				"nextid": "shownext"
-			}; //参数定义	  
-			$.ljsGlasses.pcGlasses(Oshowproductt); //方法调用，务必在加载完后执行
-		});
-	</script>
+
 </head>
 
 <body bgcolor="#F4F4F4">
@@ -67,16 +49,6 @@
 	</div>
 	<!--头部结束-->
 	<div class="showall">
-		<!--展示图片盒子-->
-		<div id="showsum">
-			<!--展示图片里边-->
-			<img src="image/a2.jpg" width="400" height="400" />
-			<img src="image/a3.jpg" width="400" height="400" />
-			<img src="image/a4.jpg" width="400" height="400" />
-			<img src="image/a2.jpg" width="400" height="400" />
-			<img src="image/a3.jpg" width="400" height="400" />
-			<img src="image/a4.jpg" width="400" height="400" />
-		</div>
 		<!--left -->
 		<div class="showbot">
 			<div id="showbox">
@@ -91,17 +63,27 @@
 				<!-- <img src="image/a5.jpg" width="400" height="400" /> -->
 				<!-- <img src="image/c1.jpg" width="400" height="400" /> --> -->
 			</div>
-			<div class="showpage">
-				<a href="javascript:void(0);" id="showlast"> < </a>
-				<div><img src="image/a2.jpg" width="400" height="400" /></div>
-			    <div><img src="image/a3.jpg" width="400" height="400" /></div>
-			    <div><img src="image/a4.jpg" width="400" height="400" /></div>
-			    <div><img src="image/a2.jpg" width="400" height="400" /></div>
-			    <div><img src="image/a3.jpg" width="400" height="400" /></div>
-			    <div><img src="image/a4.jpg" width="400" height="400" /></div>
-			   <a href="javascript:void(0);" id="shownext"> > </a>
-		    </div>
+			<div id="showsum">
+				<!--展示图片里边-->
+				<img src="image/a2.jpg" style="display: block;" class="v">
+				<img src="image/a3.jpg" >
+				<img src="image/a4.jpg" >
+				<img src="image/a2.jpg" >
+				<img src="image/a3.jpg" >
+				<img src="image/a4.jpg" >
+			</div>
 	    </div>
+		<!--展示图片盒子-->
+		<div class="showpage">
+			<!-- <a href="javascript:void(0);" id="showlast"> < </a> -->
+			<div><img src="image/a2.jpg" width="400" height="400" /></div>
+			<div><img src="image/a3.jpg" width="400" height="400" /></div>
+			<div><img src="image/a4.jpg" width="400" height="400" /></div>
+			<div><img src="image/a2.jpg" width="400" height="400" /></div>
+			<div><img src="image/a3.jpg" width="400" height="400" /></div>
+			<div><img src="image/a4.jpg" width="400" height="400" /></div>
+		   <!-- <a href="javascript:void(0);" id="shownext"> > </a> -->
+		</div>
 	</div>
 	<!--conet -->
 	<div class="tb-property">
@@ -123,30 +105,7 @@
 				<li><a title="四级庄" href="">四级庄</a></li>
 			</ul>
 		</div>
-		<script>
-			$(document).ready(function () {
 
-				var Ot = $("#text_box");
-
-				$('#min').attr('disabled', true);
-
-				$("#add").click(function () {
-					Ot.val(parseInt(Ot.val()) + 1)
-					if (parseInt(Ot.val()) != 1) {
-						$('#min').attr('disabled', false);
-					}
-
-				})
-
-				$("#min").click(function () {
-					Ot.val(parseInt(Ot.val()) - 1);
-					if (parseInt(Ot.val()) == 1) {
-						$('#min').attr('disabled', true);
-					}
-
-				})
-			});
-		</script>
 		<div class="gcIpt">
 			<span class="guT">数量</span>
 			<input id="min" name="" type="button" value="-" />
@@ -194,16 +153,7 @@
 			</dl>
 		</div>
 		<!-- right -->
-		<script>
-			var Odetail = document.querySelector('.detail');
-			var OorigOffsetY = Odetail.offsetTop;
-
-			function onScroll(e) {
-				window.scrollY >= OorigOffsetY ? Odetail.classList.add('sticky') :
-					Odetail.classList.remove('sticky');
-			}
-			document.addEventListener('scroll', onScroll);
-		</script>
+	
 		<div class="detail">
 			<div class="active_tab" id="outer">
 				<ul class="act_title_left" id="tab">
@@ -269,53 +219,9 @@
 					</ul>
 				</div>
 			</div>
-			<script>
-				$(function () {
-					window.onload = function () {
-						if (getCookie("user") == 1) {
-							document.getElementById("loginp").innerHTML =
-								"<a href='javascript:void(0)' onclick='exitLogin()'>退出登录</a>|<a href='shopCar.html'>购物车</a>"; //
-						}
-						var $Oli = $('#tab li');
-						var $Oul = $('#content ul');
-
-						$Oli.mouseover(function () {
-							var $Othis = $(this);
-							var $Ot = $Othis.index();
-							$Oli.removeClass();
-							$Othis.addClass('act_active');
-							$Oul.css('display', 'none');
-							$ul.eq($Ot).css('display', 'block');
-						})
-					}
-				});
-			</script>
+		
 		</div>
 	</div>
-	<script type="text/javascript">
-		function getCookie(name) {
-			var Oarr, Oreg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-			if (Oarr = document.cookie.match(Oreg)) {
-				return unescape(Oarr[2]);
-			} else {
-				return null;
-			}
-		}
-
-		function exitLogin() {
-			delCookie("user");
-			location.reload();
-		}
-
-		function delCookie(name) {
-			var exp = new Date();
-			exp.setTime(exp.getTime() - 1);
-			var cval = getCookie(name);
-			if (cval && cval != null) {
-				document.cookie = name + '=' + cval + ';expires=' + exp.toGMTString();
-			}
-		}
-	</script>
 </body>
 <script src="js/shopDetail.js" type="text/javascript" charset="utf-8"></script>
 
