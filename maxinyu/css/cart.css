@@ -1,23 +1,53 @@
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{
-    margin:0;
-    padding:0;
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+p,
+blockquote,
+th,
+td {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
+
 /* 自己的 */
 a {
     color: #666;
     text-decoration: none;
 }
+
 body {
     padding: 20px;
     color: #666;
 }
-.fl{
+
+.fl {
     float: left;
 }
+
 .fr {
     float: right;
 }
+
 table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -26,78 +56,108 @@ table {
     width: 937px;
     margin-left: 200px;
 }
-tr .qx{
+
+tr .qx {
     width: 70px;
 }
-tr .sp{
-    width: 100px;
+
+tr .sp {
+    width: 304px;
 }
-tr .sl{
+
+tr .sl {
     width: 130px;
 }
-tr .xj{
+
+tr .xj {
     width: 130px;
 }
-tr .cz{
+
+tr .cz {
     width: 100px;
 }
-th, td {
+
+th,
+td {
     border: 3px solid #CADEFF;
 }
+
 th {
-    background:palevioletred;
+    background: palevioletred;
     border-top: 3px solid purple;
     height: 30px;
 }
+
 td {
     padding: 10px;
     color: #444;
 }
+
 tbody tr:hover {
-    background: RGB(238,246,255);
+    background: RGB(238, 246, 255);
 }
+
 .checkbox {
     width: 60px;
 }
+
 .goods {
     width: 300px;
 }
+
 .goods span {
     width: 180px;
     margin-top: 20px;
     text-align: left;
     float: left;
 }
+
 .price {
     width: 130px;
 }
+
 .count {
     width: 90px;
 }
-.count .add, .count input, .count .reduce {
+
+.count .add,
+.count input,
+.count .reduce {
     float: left;
     margin-right: -1px;
     position: relative;
     z-index: 0;
 }
-.count .add, .count .reduce {
-    height: 23px;
-    width: 17px;
+
+.count .add,
+.count .reduce {
+    height: 20px;
+    width: 20px;
     border: 1px solid #e5e5e5;
-    background: #f0f0f0;
+    background: palevioletred;
     text-align: center;
-    line-height: 23px;
+    line-height: 20px;
     color: #444;
+    margin-top: -1px;
+    border-radius: 2px;
+
 }
-.count .add:hover, .count .reduce:hover {
+
+.reduce {
+    margin-left: 10px;
+}
+
+.count .add:hover,
+.count .reduce:hover {
     color: #f50;
     z-index: 3;
     border-color: #f60;
     cursor: pointer;
 }
+
 .count input {
     width: 50px;
-    height: 15px;
+    height: 21px;
     line-height: 15px;
     border: 1px solid #aaa;
     color: #343434;
@@ -105,20 +165,27 @@ tbody tr:hover {
     padding: 4px 0;
     background-color: #fff;
     z-index: 2;
+    border-radius: 2px;
+
 }
+
 .subtotal {
     width: 150px;
     color: red;
     font-weight: bold;
 }
+
 .operation {
     width: 80px;
 }
-.operation span:hover, a:hover {
+
+.operation span:hover,
+a:hover {
     cursor: pointer;
     color: red;
     text-decoration: underline;
 }
+
 img {
     width: 100px;
     height: 80px;
@@ -134,15 +201,18 @@ img {
     height: 48px;
     border: 1px solid #c8c8c8;
     background-color: #eaeaea;
-    background-image:linear-gradient(RGB(241,241,241),RGB(226,226,226));
+    background-image: linear-gradient(RGB(241, 241, 241), RGB(226, 226, 226));
     position: relative;
     z-index: 8;
     margin-left: 200px;
 }
-.foot div, .foot a {
+
+.foot div,
+.foot a {
     line-height: 48px;
     height: 48px;
 }
+
 .foot .select-all {
     width: 100px;
     height: 48px;
@@ -150,6 +220,7 @@ img {
     padding-left: 5px;
     color: #666;
 }
+
 .foot .closing {
     border-left: px solid #c8c8c8;
     width: 100px;
@@ -160,37 +231,47 @@ img {
     cursor: pointer;
     margin-top: -1px;
 }
-.foot .total{
+
+.foot .total {
     margin: 0 20px;
     cursor: pointer;
 }
-.foot  #priceTotal, .foot #selectedTotal {
+
+.foot #priceTotal,
+.foot #selectedTotal {
     color: red;
     font-family: "Microsoft Yahei";
     font-weight: bold;
 }
+
 .foot .selected {
     cursor: pointer;
 }
+
 .foot .selected .arrow {
     position: relative;
-    top:-3px;
+    top: -3px;
     margin-left: 3px;
 }
+
 .foot .selected .down {
     position: relative;
-    top:3px;
+    top: 3px;
     display: none;
 }
- .show .selected .down {
+
+.show .selected .down {
     display: inline;
 }
- .show .selected .up {
+
+.show .selected .up {
     display: none;
 }
+
 .foot .selected:hover .arrow {
     color: red;
 }
+
 .foot .selected-view {
     width: 935px;
     border: 1px solid #c8c8c8;
@@ -200,33 +281,39 @@ img {
     z-index: 9;
     bottom: 48px;
     left: -1px;
-    display:none;
+    display: none;
 }
+
 .show .selected-view {
     display: block;
 }
-.foot .selected-view div{
+
+.foot .selected-view div {
     height: auto;
 }
+
 .foot .selected-view .arrow {
     font-size: 16px;
     line-height: 100%;
-    color:#c8c8c8;
+    color: #c8c8c8;
     position: absolute;
     right: 330px;
     bottom: -9px;
 }
+
 .foot .selected-view .arrow span {
     color: #ffffff;
     position: absolute;
     left: 0px;
     bottom: 1px;
 }
+
 #selectedViewList {
     padding: 20px;
     margin-bottom: -20px;
 }
-#selectedViewList div{
+
+#selectedViewList div {
     display: inline-block;
     position: relative;
     width: 100px;
@@ -234,6 +321,7 @@ img {
     border: 1px solid #ccc;
     margin: 10px;
 }
+
 #selectedViewList div span {
     display: none;
     color: #ffffff;
@@ -245,9 +333,10 @@ img {
     height: 18px;
     line-height: 18px;
     text-align: center;
-    background: RGBA(0,0,0,.5);
+    background: RGBA(0, 0, 0, .5);
     cursor: pointer;
 }
+
 #selectedViewList div:hover span {
     display: block;
 }
@@ -303,8 +392,8 @@ table{
 html,body{
     width: 100%;
     min-width: 77rem;/*1232px*/
-    /* max-width: 140rem;2240px */
-    /* margin: 0 auto;
+/* max-width: 140rem;2240px */
+/* margin: 0 auto;
 }
 body{
     font-family: Helvetica;
@@ -572,7 +661,7 @@ table.goods-body tr td.goods-col-ctrl i.del-product>span{
     left: 50%;
     width: 0.8rem;
     height: 0.12rem; */
-    /* background-color: #777;
+/* background-color: #777;
     transition: background-color cubic-bezier(0.175, 0.885, 0.32, 1.275) .5s;
 }
 
@@ -782,4 +871,4 @@ div.float-box div.confirm-box>div.confirm-btn>a.delete{
 div.float-box div.confirm-box>div.confirm-btn>a.cancel{
     background-color: #00c3f5;
     color: #fff;
-}  */ 
+}  */
