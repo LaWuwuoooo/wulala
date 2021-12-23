@@ -20,25 +20,30 @@ class Goods {
         // console.log(html);
         cont.innerHTML = html;
     }
+    
     static addCart(id, num) {
         let cartGoods = localStorage.getItem('cart');
         console.log(cartGoods);
-
-        if (cartGoods) {
-            cartGoods = JSON.parse(cartGoods);
-            for (let attr in cartGoods) {
-                attr == id && (num = num + cartGoods[attr]);
-
+        let mmmm = localStorage.getItem('dlyhm')
+        console.log(mmmm);
+        if(mmmm){
+            if (cartGoods) {
+                cartGoods = JSON.parse(cartGoods);
+                for (let attr in cartGoods) {
+                    attr == id && (num = num + cartGoods[attr]);
+    
+                }
+                cartGoods[id] = num;
+                localStorage.setItem('cart', JSON.stringify(cartGoods))
+            } else {
+                cartGoods = {
+                    [id]: num
+                };
+                localStorage.setItem('cart', JSON.stringify(cartGoods))
             }
-            cartGoods[id] = num;
-            localStorage.setItem('cart', JSON.stringify(cartGoods))
-        } else {
-            cartGoods = {
-                [id]: num
-            };
-            localStorage.setItem('cart', JSON.stringify(cartGoods))
+        }else{
+        window.location.href = './login.html'
         }
-
     }
 
 
