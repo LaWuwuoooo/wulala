@@ -27,7 +27,7 @@ for (var i = 0; i < aSpan.length; i++) {
 }
 function auto() {
 	timer = setInterval(function () {
-		console.log(nmm);
+		// console.log(nmm);
 		nmm++;
 		for (var j = 0; j < aSpan.length; j++) {
 			aBanner[j].style.opacity = 0;

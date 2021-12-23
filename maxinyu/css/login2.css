@@ -238,3 +238,139 @@ a.zcxy {text-decoration: underline;line-height:58px;margin-left:15px;color: #959
 height: 60px;}
 .header .switch{left:70px;}
 
+/* 注册 */
+.container {
+	width: 300px;
+	margin: 0 auto;
+	padding: 30px;
+}
+
+.container h2 {
+	text-align: center;
+	color: #333232;
+}
+
+.container .item {
+	margin-top: 20px;
+}
+
+
+.container .item .usernamemsg {
+	color: red;
+	font-size: 12px;
+	margin-left: 50px;
+}
+.container .item .pswmsg {
+	color: red;
+	font-size: 12px;
+	margin-left: 50px;
+}
+.container .item .emailmsg {
+	color: red;
+	font-size: 12px;
+	margin-left: 50px;
+}.container .item .usernamemsg1 {
+	color: green;
+	font-size: 12px;
+	margin-left: 50px;
+}
+.container .item .pswmsg1 {
+	color: green;
+	font-size: 12px;
+	margin-left: 50px;
+}
+.container .item .emailmsg1 {
+	color: green;
+	font-size: 12px;
+	margin-left: 50px;
+}
+.container .item label{
+	font-size: 15px;
+
+}
+.container .item input{
+	font-size: 15px;
+	width: 209px;
+	height: 42px;
+	border: 1px gainsboro solid;
+	border-radius: 4px;
+	margin-bottom: 12px;
+}
+
+.container #register {
+	color: white;
+	font-size: 15px;
+	display: inline-block;
+	width: 150px;
+	height: 40px;
+	line-height: 30px;
+	text-align: center;
+	margin-left: 80px;
+	border-radius: 5px;
+	background: #2795dc;
+	border: none;
+    border-bottom:3px solid #0078b3;
+}
+
+/* denglu */
+/* 注册 */
+.container1 {
+	width: 300px;
+	margin: 0 auto;
+	padding: 15px;
+}
+
+
+.container1 .item1 {
+	margin-top: 20px;
+}
+
+
+.container1 .item1 .usernamemsg3 {
+	color: red;
+	font-size: 12px;
+	margin-left: 50px;
+}
+.container1 .item1 .pswmsg3 {
+	color: red;
+	font-size: 12px;
+	margin-left: 50px;
+}
+.container1 .item1 .usernamemsg2 {
+	color: green;
+	font-size: 12px;
+	margin-left: 50px;
+}
+.container1 .item1 .pswmsg2 {
+	color: green;
+	font-size: 12px;
+	margin-left: 50px;
+}
+
+.container1 .item1 label{
+	font-size: 15px;
+
+}
+.container1 .item1 input{
+	font-size: 15px;
+	width: 209px;
+	height: 42px;
+	border: 1px gainsboro solid;
+	border-radius: 4px;
+	margin-bottom: 12px;
+}
+
+.container1 #register1 {
+	color: white;
+	font-size: 15px;
+	display: inline-block;
+	width: 150px;
+	height: 40px;
+	line-height: 30px;
+	text-align: center;
+	margin-left: 80px;
+	border-radius: 5px;
+	background: #2795dc;
+	border: none;
+    border-bottom:3px solid #0078b3;
+}

@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>快速登录注册</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script type="text/javascript" src="js/jquery-1.11.0.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <link href="css/login2.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <h1>快速登录注册<sup>2021</sup></h1>
+
+    <div class="login" style="margin-top:50px;">
+
+        <div class="header">
+            <div class="switch" id="switch"><a class="switch_btn_focus" id="switch_qlogin" href="javascript:void(0);"
+                    tabindex="7">快速登录</a>
+                <a class="switch_btn" id="switch_login" href="javascript:void(0);" tabindex="8">快速注册</a>
+                <div class="switch_bottom" id="switch_bottom" style="position: absolute; width: 64px; left: 0px;"></div>
+            </div>
+        </div>
+
+
+        <div class="web_qr_login" id="web_qr_login" style="display: block; height: 300px;">
+
+            <!--登录-->
+            <div class="web_login" id="web_login">
+
+
+                <div class="container1">
+                    <form>
+                        <div class="item1">
+                            <label for="username">用户名:</label>
+                            <input type="text" name="username1" id="mingzi">
+                            <p class="usernamemsg3"></p>
+                            <p class="usernamemsg2"></p>
+
+                        </div>
+                        <div class="item1">
+                            <label for="password">密&nbsp;&nbsp;&nbsp;码:</label>
+                            <input type="text" name="password1" id="mima">
+                            <p class="pswmsg3"></p>
+                            <p class="pswmsg2"></p>
+
+                        </div>
+                        <div class="item item4">
+                            <input type="button" id="register1" value="登&nbsp;录">
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <!--登录end-->
+        </div>
+
+        <!--注册-->
+        <div class="qlogin" id="qlogin" style="display: none; ">
+
+            <div class="container">
+                <form>
+                    <div class="item">
+                        <label for="username">用户名:</label>
+                        <input type="text" name="username">
+                        <p class="usernamemsg"></p>
+                        <p class="usernamemsg1"></p>
+
+                    </div>
+                    <div class="item">
+                        <label for="password">密&nbsp;&nbsp;&nbsp;码:</label>
+                        <input type="text" name="password">
+                        <p class="pswmsg"></p>
+                        <p class="pswmsg1"></p>
+
+                    </div>
+                    <div class="item">
+                        <label for="email">邮&nbsp;&nbsp;&nbsp;箱:</label>
+                        <input type="text" name="email">
+                        <p class="emailmsg"></p>
+                        <p class="emailmsg1"></p>
+
+                    </div>
+                    <div class="item item4">
+                        <input type="button" id="register" value="注&nbsp;册">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+    <!--注册end-->
+    </div>
+    <div class="jianyi">*推荐使用ie8或以上版本ie浏览器或Chrome内核浏览器访问本站</div>
+</body>
+<script>
+    let userNameInput = document.querySelector('#qlogin .container input[name="username"]')
+    // console.log(userNameInput);
+    let passwordInput = document.querySelector('#qlogin .container input[name="password"]')
+    let emailInput = document.querySelector('#qlogin .container input[name="email"]')
+    // console.log(emailInput);
+    let userNameP = document.querySelector('.usernamemsg')
+    let passwordP = document.querySelector('.pswmsg')
+    let emailP = document.querySelector('.emailmsg')
+    let userNameP1 = document.querySelector('.usernamemsg1')
+    let passwordP1 = document.querySelector('.pswmsg1')
+    let emailP1 = document.querySelector('.emailmsg1')
+    let regsiterBtn = document.querySelector('#register')
+
+    let checkNullUserName = () => {
+        if (userNameInput.value == '') {
+            userNameP.innerHTML = '用户名不能为空!'
+            userNameP1.innerHTML = ''
+
+            return false
+        }
+        if (userNameInput != '') {
+            console.log(321);
+            let user = localStorage.getItem('user')
+            let usera = JSON.parse(user)
+            // console.log(usera);
+            for (let ele in usera) {
+                // console.log(ele,usera[ele][0]);
+                if (userNameInput.value == ele) {
+                    userNameP.innerHTML = '用户名已存在!'
+                    userNameP1.innerHTML = ''
+                    return false
+                }
+            }
+        } 
+        if(userNameInput != '') {
+            console.log(123);
+            userNameP1.innerHTML = '用户名正确'
+            userNameP.innerHTML = ''
+            return true
+        }
+    }
+
+    let checkNullPassword = () => {
+        if (passwordInput.value == '') {
+            passwordP.innerHTML = '密码不能为空!'
+            passwordP1.innerHTML = ''
+
+            return false
+        } else {
+            passwordP1.innerHTML = ''
+
+            return true
+        }
+    }
+
+    let checkNullEmail = () => {
+        if (emailInput.value == '') {
+            emailP.innerHTML = '邮箱不能为空!'
+            emailP1.innerHTML = ''
+
+            return false
+        } else {
+            emailP1.innerHTML = ''
+
+            return true
+        }
+    }
+
+    let checkPassword = () => {
+        let reg = /[A-Z][a-zA-Z0-9]{7,}/
+        if (!reg.test(passwordInput.value)) {
+            passwordP.innerHTML = '密码必须是大写字母开头,是字母和数字组合，至少8位'
+            return false
+        } else {
+            passwordP1.innerHTML = '密码正确'
+            passwordP.innerHTML = ''
+
+            return true
+        }
+    }
+
+    let checkEmail = () => {
+
+        let emailReg = /[_a-zA-Z0-9]+@[_a-zA-Z0-9]{2,}\.com$/
+        if (!emailReg.test(emailInput.value)) {
+            emailP.innerHTML = '邮箱格式不正确!'
+            return false
+        } else {
+            emailP1.innerHTML = '邮箱正确'
+            emailP.innerHTML = ''
+            return true
+        }
+    }
+
+    //注册
+    regsiterBtn.onclick = function () {
+        //1.非空验证
+
+        let isCheckNullUserName = checkNullUserName()
+        let isCheckNullPassword = checkNullPassword()
+        let isCheckNullEmail = checkNullEmail()
+        if (!isCheckNullUserName || !isCheckNullPassword || !isCheckNullEmail) {
+            return
+        }
+        // 获取三个输入框的状态
+        let isCheckPassword = checkPassword()
+        let isCheckEmail = checkEmail()
+        if (!isCheckPassword || !isCheckEmail) {
+            return
+        }
+        // console.log(userNameInput.value);
+        // console.log(passwordInput.value);
+        // console.log(emailInp.value);
+        let user = localStorage.getItem('user')
+        // let usera = JSON.parse(user)
+        // console.log(usera);
+        // console.log(user)
+        if (!user) {
+            let obj = {};
+            obj[userNameInput.value] = [passwordInput.value, emailInput.value];
+            localStorage.setItem('user', JSON.stringify(obj));
+            // let aaa = localStorage.getItem('user');
+            // console.log(aaa);
+        } else {
+            let obj = JSON.parse(user);
+            obj[userNameInput.value] = [passwordInput.value, emailInput.value]
+            localStorage.setItem('user', JSON.stringify(obj));
+        }
+        alert('注册成功')
+        $('#switch_login').removeClass("switch_btn_focus").addClass('switch_btn');
+        $('#switch_qlogin').removeClass("switch_btn").addClass('switch_btn_focus');
+        $('#switch_bottom').animate({
+            left: '0px',
+            width: '70px'
+        });
+        $('#qlogin').css('display', 'none');
+        $('#web_qr_login').css('display', 'block');
+
+    }
+
+    userNameInput.onblur = function () {
+        checkNullUserName()
+    }
+
+    passwordInput.onblur = function () {
+        let isCheckNullPassword = checkNullPassword()
+
+        if (!isCheckNullPassword) {
+            return
+        }
+        checkPassword()
+    }
+
+    emailInput.onblur = function () {
+        let isCheckNullEmail = checkNullEmail()
+
+        if (!isCheckNullEmail) {
+            return
+        }
+        checkEmail()
+    }
+
+
+    // 登录
+</script>
+<script type="text/javascript" src="js/denglu.js"></script>
+
+</html>

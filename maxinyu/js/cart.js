@@ -94,7 +94,7 @@ class Cart {
     tar.classList.contains('check-one') && this.oneCheckFn(tar);
     tar.classList.contains('add') && this.addClickFn(tar);
     tar.classList.contains('delete') && this.delClickFn(tar);
-
+    console.log(this);
   }
 
 
@@ -112,7 +112,7 @@ class Cart {
   render (goodsData, cg) {
     let template = '';
     goodsData.forEach(ele => {
-      template += `<tr>
+      template += `<tr goods-id="${ele.id}">
       <td class="checkbox">
         <input class="check-one check" type="checkbox" />
       </td>
@@ -154,7 +154,7 @@ class Cart {
     })
   }
   oneCheckFn(target) {
-    this.subTobal();
+    this.subTotal();
     if (!target.checked){
       this.$$('.check-all')[0].checked = false;
       this.$$('.check-all')[1].checked = false;
@@ -171,7 +171,7 @@ class Cart {
     }
   }
    //总价
-  subTobal (sta = true){
+  subTotal (sta = true){
     let totalNum = 0,totalPrice = 0;
     sta && this.$$('.check-one').forEach(ele =>{
       if (ele.checked){
@@ -192,11 +192,13 @@ class Cart {
     sub.innerHTML = parseInt((num.value * price) * 100) / 100;
     let tr = target.parentNode.parentNode
     tr.querySelector('.check-one').checked && this.subTotal();
-    this.modifyLocal(tr.getAttribute('goods-id'), num.value)
+    this.modifyLocal(tr.getAttribute('goods-id'), num.value -0)
+    console.log(this);
 
   }
   delClickFn (target) {
     let that = this;
+    console.log(this);
     let tr = target.parentNode.parentNode;
     layer.open({
       title: '确认删除框'
@@ -205,6 +207,7 @@ class Cart {
       , btn2: function (index, layero) {
         tr.remove();
         tr.querySelector('.check-one').checked && that.subTotal();
+        console.log(that);
       }
     });
 
@@ -214,6 +217,7 @@ class Cart {
   modifyLocal (id, num = 0) {
     console.log(id, num);
     let cartGoods = localStorage.getItem('cart');
+    // console.log(cartGoods);
     if (!cartGoods) return;
     cartGoods = JSON.parse(cartGoods);
     num == 0 && delete cartGoods[id];

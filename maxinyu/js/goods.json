@@ -2,49 +2,49 @@
   {
     "id": 1,
     "src":"./image/a2.jpg",
-    "price": 3388.88,
+    "price": 3388,
     "name": "玫瑰山庄园红酒"
   },
   {
     "id": 2,
     "src":"./image/a3.jpg",
-    "price": 1088.88,
+    "price": 1088,
     "name": "马利哥酒庄红酒"
   },
   {
     "id": 3,
     "src":"./image/a4.jpg",
-    "price": 388.88,
+    "price": 1188,
     "name": "杜哈米隆古堡红酒"
   },
   {
     "id": 4,
     "src":"./image/a5.jpg",
-    "price": 1388.88,
+    "price": 1388,
     "name": "庞特卡奈古堡红酒"
   },
   {
     "id": 5,
     "src":"./image/c1.jpg",
-    "price": 588.88,
+    "price": 1588,
     "name": "柏图斯酒庄红酒"
   },
   {
     "id": 6,
     "src":"./image/c2.jpg",
-    "price": 1088.88,
+    "price": 1088,
     "name": "柏安特酒庄红酒"
   },
   {
     "id": 7,
     "src":"./image/c3.jpg",
-    "price": 2280.66,
+    "price": 2280,
     "name": "雅各宾庄园红酒"
   },
   {
     "id": 8,
     "src":"./image/c4.jpg",
-    "price": 888.88,
+    "price": 1888,
     "name": "盖伊之花酒庄红酒"
   }
 ]
