@@ -184,18 +184,6 @@ class Cart {
     this._$('#selectedTotal').innerHTML = totalNum;
   }
 
-  addClickFn (target) {
-    let num = target.previousElementSibling;
-    num.value = num.value - 0 + 1;
-    let sub = target.parentNode.nextElementSibling;
-    let price = target.parentNode.previousElementSibling.innerHTML;
-    sub.innerHTML = parseInt((num.value * price) * 100) / 100;
-    let tr = target.parentNode.parentNode
-    tr.querySelector('.check-one').checked && this.subTotal();
-    this.modifyLocal(tr.getAttribute('goods-id'), num.value -0)
-    console.log(this);
-
-  }
   delClickFn (target) {
     let that = this;
     console.log(this);
@@ -214,18 +202,7 @@ class Cart {
     this.modifyLocal(tr.getAttribute('goods-id'))
   }
 
-  modifyLocal (id, num = 0) {
-    console.log(id, num);
-    let cartGoods = localStorage.getItem('cart');
-    // console.log(cartGoods);
-    if (!cartGoods) return;
-    cartGoods = JSON.parse(cartGoods);
-    num == 0 && delete cartGoods[id];
-    num != 0 && (cartGoods[id] = num);
-    localStorage.setItem('cart', JSON.stringify(cartGoods));
-  }
-
-
+ 
   _$ (ele) {
     return document.querySelector(ele)
   }
